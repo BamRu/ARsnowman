@@ -26,8 +26,8 @@ var trackedMatrix = {
 
 var markers = {
     pinball: {
-        width: 1637,
-        height: 2048,
+        width: 163,
+        height: 204,
         dpi: 215,
         url: "../examples/DataNFT/pinball"
     }
