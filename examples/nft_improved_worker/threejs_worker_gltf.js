@@ -6,7 +6,7 @@ function isMobile() {
     return /Android|mobile|iPad|iPhone/i.test(navigator.userAgent);
 }
 
-var interpolationFactor = 50;
+var interpolationFactor = 24;
 
 var trackedMatrix = {
     // for interpolation
