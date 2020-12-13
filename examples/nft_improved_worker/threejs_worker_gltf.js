@@ -25,7 +25,7 @@ var trackedMatrix = {
 }
 
 var markers = {
-    22: {
+    pinball: {
         width: 300,
         height: 300,
         dpi: 215,
