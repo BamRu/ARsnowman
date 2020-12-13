@@ -25,7 +25,7 @@ var trackedMatrix = {
 }
 
 var markers = {
-    pinball: {
+    22: {
         width: 300,
         height: 300,
         dpi: 215,
@@ -71,7 +71,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 100;
+    camera.position.z = 400;
 
     scene.add(camera);
 
@@ -92,19 +92,18 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     threeGLTFLoader.load("../Data/models/heart.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
-			model.scale.z = 0
-            model.position.x = 50;
-			model.scale.x = 0
-            model.position.y = 50;
-			model.scale.y = 0
+            model.position.x = 100;
+            model.position.y = 100;
+			model.scale.z = 1
+			model.scale.x = 1
+			model.scale.y = 1
 
-           
-			var animation = gltf.animations[0];
+            var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
             action.play();
-			
+
             root.matrixAutoUpdate = false;
             root.add(model);
         }
@@ -245,14 +244,13 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.visible = true;
 
             // interpolate matrix
-			
             for (var i = 0; i < 16; i++) {
                 trackedMatrix.delta[i] = world[i] - trackedMatrix.interpolated[i];
                 trackedMatrix.interpolated[i] =
                     trackedMatrix.interpolated[i] +
                     trackedMatrix.delta[i] / interpolationFactor;
             }
-			
+
             // set matrix of 'root' by detected 'world' matrix
             setMatrix(root.matrix, trackedMatrix.interpolated);
         }
@@ -264,3 +262,4 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     tick();
     process();
 }
+
