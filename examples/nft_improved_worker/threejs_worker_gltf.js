@@ -93,9 +93,9 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model = gltf.scene.children[0];
             model.position.z = 0;
 			model.scale.z = 3
-            model.position.x = 100;
+            model.position.x = 0;
 			model.scale.x = 3
-            model.position.y = 100;
+            model.position.y = 0;
 			model.scale.y = 3
 
             var animation = gltf.animations[0];
