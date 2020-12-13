@@ -71,7 +71,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 30;
+    camera.position.z = 10;
 
     scene.add(camera);
 
@@ -94,9 +94,9 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.z = 0;
             model.position.x = 100;
             model.position.y = 100;
-			model.scale.z = 1
-			model.scale.x = 1
-			model.scale.y = 1
+			model.scale.z = 5
+			model.scale.x = 5
+			model.scale.y = 5
 
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
