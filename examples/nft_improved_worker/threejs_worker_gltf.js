@@ -252,7 +252,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         lasttime = now;
 
         if (!world) {
-            root.visible = false;
+            //root.visible = false;
         } else {
             root.visible = true;
 
