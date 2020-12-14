@@ -83,14 +83,15 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         new THREE.MeshNormalMaterial()
     );
 
-	const boxWidth = 1;
-	const boxHeight = 1;
-	const boxDepth = 1;
-	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+	var boxWidth = 50;
+	var boxHeight = 50;
+	var boxDepth = 50;
+	var geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
 
-	const material = new THREE.MeshBasicMaterial({color: 0x44aa88});  // greenish blue
+	var material = new THREE.MeshBasicMaterial({color: 0x44aa88});  // greenish blue
 
-	const root = new THREE.Mesh(geometry, material);
+	var root = new THREE.Mesh(geometry, material);
+	root.matrixAutoUpdate = false;
 	scene.add(root);
 	/*
     var root = new THREE.Object3D();
