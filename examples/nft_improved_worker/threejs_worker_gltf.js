@@ -83,10 +83,22 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         new THREE.MeshNormalMaterial()
     );
 
+	const boxWidth = 1;
+	const boxHeight = 1;
+	const boxDepth = 1;
+	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+	const material = new THREE.MeshBasicMaterial({color: 0x44aa88});  // greenish blue
+
+	const cube = new THREE.Mesh(geometry, material);
+	scene.add(cube);
+	/*
     var root = new THREE.Object3D();
     scene.add(root);
-
+	*/
     /* Load Model */
+	
+	/*
     var threeGLTFLoader = new THREE.GLTFLoader();
 
     threeGLTFLoader.load("../Data/models/heart.glb", function (gltf) {
@@ -108,7 +120,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.add(model);
         }
     );
-
+	*/
     var load = function() {
         vw = input_width;
         vh = input_height;
