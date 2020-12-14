@@ -82,7 +82,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         new THREE.SphereGeometry(0.5, 8, 8),
         new THREE.MeshNormalMaterial()
     );
-
+	/*
 	var boxWidth = 50;
 	var boxHeight = 50;
 	var boxDepth = 50;
@@ -93,35 +93,34 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	var root = new THREE.Mesh(geometry, material);
 	root.matrixAutoUpdate = false;
 	scene.add(root);
-	/*
+	
     var root = new THREE.Object3D();
     scene.add(root);
 	*/
     /* Load Model */
 	
-	/*
-    var threeGLTFLoader = new THREE.GLTFLoader();
+	var threeGLTFLoader = new THREE.GLTFLoader();
 
-    threeGLTFLoader.load("../Data/models/heart.glb", function (gltf) {
+    threeGLTFLoader.load("../Data/models/Alien.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
-            model.position.x = 100;
-            model.position.y = 100;
+            model.position.x = 0;
+            model.position.y = 0;
 			model.scale.z = 10
 			model.scale.x = 10
 			model.scale.y = 10
-
+/*
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
             action.play();
-
+*/
             root.matrixAutoUpdate = false;
             root.add(model);
         }
     );
-	*/
+
     var load = function() {
         vw = input_width;
         vh = input_height;
@@ -252,7 +251,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         lasttime = now;
 
         if (!world) {
-            //root.visible = false;
+            root.visible = false;
         } else {
             root.visible = true;
 
