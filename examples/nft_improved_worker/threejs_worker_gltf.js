@@ -90,8 +90,8 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 
 	const material = new THREE.MeshBasicMaterial({color: 0x44aa88});  // greenish blue
 
-	const cube = new THREE.Mesh(geometry, material);
-	scene.add(cube);
+	const root = new THREE.Mesh(geometry, material);
+	scene.add(root);
 	/*
     var root = new THREE.Object3D();
     scene.add(root);
