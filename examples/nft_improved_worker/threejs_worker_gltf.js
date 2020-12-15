@@ -71,7 +71,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
-    //camera.position.z = 15;
+    camera.position.z = 15;
 
     scene.add(camera);
 
@@ -93,10 +93,10 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	var root = new THREE.Mesh(geometry, material);
 	root.matrixAutoUpdate = false;
 	scene.add(root);
-	
+	*/
     var root = new THREE.Object3D();
     scene.add(root);
-	*/
+	
     /* Load Model */
 	
 	var threeGLTFLoader = new THREE.GLTFLoader();
