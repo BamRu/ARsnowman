@@ -242,7 +242,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             }
         }
     };
-
+	var flag = false;
     var draw = function() {
         render_update();
         var now = Date.now();
@@ -266,8 +266,10 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             // set matrix of 'root' by detected 'world' matrix
             setMatrix(root.matrix, trackedMatrix.interpolated);
         }
-
+		if (flag == false){
         renderer.render(scene, camera);
+		flag = true;
+		}
     };
 
     load();
