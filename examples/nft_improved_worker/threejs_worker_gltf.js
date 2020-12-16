@@ -28,7 +28,7 @@ var markers = {
     pinball: {
         width: 300,
         height: 300,
-        dpi: 215,
+        dpi: 50,
         url: "../examples/DataNFT/pinball"
     }
 };
