@@ -26,8 +26,8 @@ var trackedMatrix = {
 
 var markers = {
     pinball: {
-        width: 300,
-        height: 300,
+        width: 285,
+        height: 285,
         dpi: 50,
         url: "../examples/DataNFT/pinball"
     }
@@ -72,15 +72,20 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     renderer.setPixelRatio(window.devicePixelRatio);
 
     var scene = new THREE.Scene();
+    var sceneTwo = new THREE.Scene();
+		
+	
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.00000000000001, 100000000000000000);
 	camera.position.z = 15;
 
 	scene.add(camera);
+	sceneTwo.add(camera);
 
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
+    sceneTwo.add(light);
 
 	/*
     var sphere = new THREE.Mesh(
@@ -100,26 +105,27 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	*/
     var root = new THREE.Object3D();
     scene.add(root);
+	sceneTwo.add(root)
 	
     /* Load Model */
 	
 	var threeGLTFLoader = new THREE.GLTFLoader();
 
-    threeGLTFLoader.load("../Data/models/heart.glb", function (gltf) {
+    threeGLTFLoader.load("../Data/models/Alien.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
             model.position.x = 0;
             model.position.y = 0;
-			model.scale.z = 20
-			model.scale.x = 20
-			model.scale.y = 20
-
+			model.scale.z = 10;
+			model.scale.x = 10;
+			model.scale.y = 10;
+/*
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
             action.play();
-
+*/
             root.matrixAutoUpdate = false;
             root.add(model);
         }
