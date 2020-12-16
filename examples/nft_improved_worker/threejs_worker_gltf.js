@@ -6,7 +6,7 @@ function isMobile() {
     return /Android|mobile|iPad|iPhone/i.test(navigator.userAgent);
 }
 
-var interpolationFactor = 1;
+var interpolationFactor = 999;
 
 var trackedMatrix = {
     // for interpolation
@@ -79,11 +79,11 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
 
+	/*
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
         new THREE.MeshNormalMaterial()
     );
-	/*
 	var boxWidth = 50;
 	var boxHeight = 50;
 	var boxDepth = 50;
