@@ -32,7 +32,11 @@ var markers = {
         url: "../examples/DataNFT/pinball"
     }
 };
-
+/*
+function printmtrx(msg){
+	document.getElementById('matrix').innerHTML = 
+}
+*/
 var setMatrix = function (matrix, value) {
     var array = [];
     for (var key in value) {
@@ -242,7 +246,6 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             }
         }
     };
-	var flag = false;
     var draw = function() {
         render_update();
         var now = Date.now();
@@ -266,10 +269,12 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             // set matrix of 'root' by detected 'world' matrix
             setMatrix(root.matrix, trackedMatrix.interpolated);
         }
-		if (flag == false){
-        renderer.render(scene, camera);
-		flag = true;
-		}
+		setTimeout(() => { 
+			console.log(trackedMatrix.delta);
+			console.log(trackedMatrix.interpolated);
+			console.log(world);
+		}, 10000);
+		renderer.render(scene, camera);
     };
 
     load();
