@@ -273,7 +273,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 			console.log(trackedMatrix.delta);
 			console.log(trackedMatrix.interpolated);
 			console.log(world);
-		}, 10000);
+		}, 100000);
 		renderer.render(scene, camera);
     };
 
