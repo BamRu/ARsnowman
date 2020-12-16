@@ -28,7 +28,7 @@ var markers = {
     pinball: {
         width: 285,
         height: 285,
-        dpi: 50,
+        dpi: 215,
         url: "../examples/DataNFT/pinball"
     }
 };
@@ -81,17 +81,18 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	camera.position.z = 15;
 
 	scene.add(camera);
-	sceneTwo.add(camera);
+	//sceneTwo.add(camera);
 
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
-    sceneTwo.add(light);
+    //sceneTwo.add(light);
 
-	/*
+	
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
         new THREE.MeshNormalMaterial()
     );
+	/*
 	var boxWidth = 50;
 	var boxHeight = 50;
 	var boxDepth = 50;
@@ -105,7 +106,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	*/
     var root = new THREE.Object3D();
     scene.add(root);
-	sceneTwo.add(root)
+	//sceneTwo.add(root)
 	
     /* Load Model */
 	
