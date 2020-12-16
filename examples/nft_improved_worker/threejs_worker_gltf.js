@@ -275,11 +275,6 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             // set matrix of 'root' by detected 'world' matrix
             setMatrix(root.matrix, trackedMatrix.interpolated);
         }
-		setTimeout(() => { 
-			console.log(trackedMatrix.delta);
-			console.log(trackedMatrix.interpolated);
-			console.log(world);
-		}, 100000);
 		renderer.render(scene, camera);
     };
 
