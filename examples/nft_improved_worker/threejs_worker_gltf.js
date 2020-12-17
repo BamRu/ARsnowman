@@ -112,7 +112,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	
 	var threeGLTFLoader = new THREE.GLTFLoader();
 
-    threeGLTFLoader.load("../Data/models/Alien.glb", function (gltf) {
+    threeGLTFLoader.load("../Data/models/heart.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
             model.position.x = 0;
@@ -120,13 +120,13 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 			model.scale.z = 100;
 			model.scale.x = 100;
 			model.scale.y = 100;
-/*
+
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
             action.play();
-*/
+
             root.matrixAutoUpdate = false;
             root.add(model);
         }
