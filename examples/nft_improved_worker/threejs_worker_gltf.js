@@ -72,16 +72,14 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.z = 400;
-
+	
+	const listener = new THREE.AudioListener();
+	camera.add( listener );
+	
     scene.add(camera);
 
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
-
-    var sphere = new THREE.Mesh(
-        new THREE.SphereGeometry(0.5, 8, 8),
-        new THREE.MeshNormalMaterial()
-    );
 
     var root = new THREE.Object3D();
     scene.add(root);
@@ -105,6 +103,16 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.add(model);
         }
     );
+
+	const sound = new THREE.Audio( listener );
+	
+	const audioLoader = new THREE.AudioLoader();
+	audioLoader.load( "../Data/Sound/Sound.glb", function( buffer ) {
+	sound.setBuffer( buffer );
+	sound.setLoop( true );
+	sound.setVolume( 0.5 );
+	sound.play();
+	);
 
     var load = function() {
         vw = input_width;
