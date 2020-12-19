@@ -110,7 +110,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	const sound = new THREE.Audio( listener );
 	
 	const audioLoader = new THREE.AudioLoader();
-	audioLoader.load( "../Data/Sound/Sound.glb", function( buffer ) {
+	audioLoader.load( "../Data/Sound/Sound.ogg", function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
 	sound.setVolume( 0.5 );
