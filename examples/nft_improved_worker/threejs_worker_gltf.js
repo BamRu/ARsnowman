@@ -115,7 +115,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	sound.setLoop( true );
 	sound.setVolume( 0.5 );
 	sound.play();
-	);
+	});
 
     var load = function() {
         vw = input_width;
