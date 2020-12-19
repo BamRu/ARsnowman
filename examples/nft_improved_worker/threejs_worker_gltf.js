@@ -114,7 +114,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
 	sound.setVolume( 0.5 );
-	sound.play();
+
 	});
 
     var load = function() {
@@ -250,7 +250,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.visible = false;
         } else {
             root.visible = true;
-
+			sound.play();
             // interpolate matrix
             for (var i = 0; i < 16; i++) {
                 trackedMatrix.delta[i] = world[i] - trackedMatrix.interpolated[i];
