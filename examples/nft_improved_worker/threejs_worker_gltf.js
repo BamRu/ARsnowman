@@ -86,11 +86,12 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 
     threeGLTFLoader.load("../Data/models/SnowMan.glb", function (gltf) {
             model = gltf.scene.children[0];
-            model.position.z = 0;
             model.position.x = 0;
             model.position.y = 0;
-			model.rotation.x = 90;
-			model.rotation.y = 90;
+            model.position.z = 0;
+			model.rotation.x = 0;
+			model.rotation.y = 0;
+			model.rotation.z = 0;
 			model.scale.x = 1000;
 			model.scale.y - 1000;
 			model.scale.z = 1000;
@@ -115,7 +116,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	audioLoader.load( '../Data/sound/audio_snowman.ogg', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
-	sound.setVolume( 0.5 );
+	sound.setVolume( 0.3 );
 	
 });
 	
