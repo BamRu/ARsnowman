@@ -89,10 +89,10 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.z = 0;
             model.position.x = 100;
             model.position.y = 100;
-			model.rotation.y = 180;
-			model.scale.x = 300;
-			model.scale.y - 300;
-			model.scale.z = 300;
+			//model.rotation.y = 180;
+			model.scale.x = 1000;
+			model.scale.y - 1000;
+			model.scale.z = 1000;
 
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
