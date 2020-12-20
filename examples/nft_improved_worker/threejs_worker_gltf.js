@@ -89,7 +89,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.x = 0;
             model.position.y = 0;
             model.position.z = 0;
-			model.rotation.x = 0;
+			model.rotation.x = 90;
 			model.rotation.y = -90;
 			model.rotation.z = 270;
 			model.scale.x = 1000;
