@@ -11,6 +11,27 @@
       <img src="../Data/logo.gif" />
       <span class="loading-text">Loading, please wait</span>
     </div>
+
+    <!--
+  ==================
+  STATS
+  ==================
+  -->
+
+    <div id="stats" class="ui stats">
+      <div id="stats1" class="stats-item">
+        <p class="stats-item-title">
+          Main
+        </p>
+      </div>
+
+      <div id="stats2" class="stats-item">
+        <p class="stats-item-title">
+          Worker
+        </p>
+      </div>
+    </div>
+
     <!--
       ==================
       CAMERA VIDEO & CANVAS
@@ -35,6 +56,17 @@
     <script src="threejs_worker_gltf.js"></script>
 
     <script>
+      /**
+       * STATS
+       */
+      var statsMain = new Stats();
+      statsMain.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+      document.getElementById("stats1").appendChild(statsMain.dom);
+
+      var statsWorker = new Stats();
+      statsWorker.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+      document.getElementById("stats2").appendChild(statsWorker.dom);
+
       /**
        * APP / ELEMENTS
        */
