@@ -113,9 +113,10 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 	var audioLoader = new THREE.AudioLoader();
 	
 	audioLoader.load( "../Data/Sound/audio_snowman.ogg", function( buffer ) {
-	sound.setBuffer( buffer );
-	sound.setLoop( true );
-	sound.setVolume( 0.3 );
+		sound.setBuffer( buffer );
+		sound.setLoop( true );
+		sound.setVolume( 0.3 );
+		}
 	};
 	
     var load = function() {
@@ -227,7 +228,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         worker.postMessage({ type: "process", imagedata: imageData }, [
             imageData.data.buffer
         ]);
-    }
+    };
 
     var tick = function() {
         draw();
