@@ -102,7 +102,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             var action = mixer.clipAction(animation);
             action.play();
 
-            root.matrixAutoUpdate = false;
+            root.matrixAutoUpdate = true;
             root.add(model);
         }
     );
