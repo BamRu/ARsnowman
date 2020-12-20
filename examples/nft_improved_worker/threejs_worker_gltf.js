@@ -109,14 +109,15 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         }
     );
 	
-	const sound = new THREE.Audio( listener );
+	var sound = new THREE.Audio( listener );	
+	var audioLoader = new THREE.AudioLoader();
 	
-	const audioLoader = new THREE.AudioLoader();
-	audioLoader.load( "./Data/Sound/audio_snowman.ogg", function( buffer ) {
+	audioLoader.load( "../Data/Sound/audio_snowman.ogg", function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
 	sound.setVolume( 0.3 );
-
+	};
+	
     var load = function() {
         vw = input_width;
         vh = input_height;
