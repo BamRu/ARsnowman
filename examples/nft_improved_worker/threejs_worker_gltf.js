@@ -70,7 +70,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
-    var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
+    var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000000000000);
     camera.position.z = 15;
 	
     scene.add(camera);
@@ -89,7 +89,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     /* Load Model */
     var threeGLTFLoader = new THREE.GLTFLoader();
 
-    threeGLTFLoader.load("../Data/models/SnowMan.glb", function (gltf) {
+    threeGLTFLoader.load("../Data/models/DNK.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
             model.position.x = 0;
