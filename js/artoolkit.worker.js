@@ -1,4 +1,4 @@
-importScripts('./artoolkit.debug.js');
+importScripts('./artoolkit.min.js');
 
 self.onmessage = function(e) {
     var msg = e.data;
