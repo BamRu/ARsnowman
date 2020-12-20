@@ -71,7 +71,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000000000000);
-    camera.position.y = -15;
+    camera.position.z = 10;
 	
     scene.add(camera);
 
@@ -89,16 +89,17 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.z = 0;
             model.position.x = 100;
             model.position.y = 100;
+			model.rotation.x = 90;
 			model.scale.x = 300;
 			model.scale.y - 300;
 			model.scale.z = 300;
-/*
+
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
             action.play();
-*/
+
             root.matrixAutoUpdate = false;
             root.add(model);
         }
