@@ -201,7 +201,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
                     break;
                 }
             }
-            track_update();
+            //track_update();
             process();
         };
     };
