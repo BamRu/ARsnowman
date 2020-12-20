@@ -72,7 +72,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     camera.matrixAutoUpdate = false;
     // var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
     // camera.position.z = 400;
-
+	
     scene.add(camera);
 
     var light = new THREE.AmbientLight(0xffffff);
@@ -105,7 +105,20 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.add(model);
         }
     );
-
+	
+	const listener = new THREE.AudioListener();
+	camera.add( listener );
+	
+	const sound = new THREE.Audio( listener );
+	
+	const audioLoader = new THREE.AudioLoader();
+	audioLoader.load( '../Data/sound/audio_snowman.ogg', function( buffer ) {
+	sound.setBuffer( buffer );
+	sound.setLoop( true );
+	sound.setVolume( 0.5 );
+	
+});
+	
     var load = function() {
         vw = input_width;
         vh = input_height;
@@ -239,7 +252,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.visible = false;
         } else {
             root.visible = true;
-
+			sound.play();
             // interpolate matrix
             for (var i = 0; i < 16; i++) {
                 trackedMatrix.delta[i] = world[i] - trackedMatrix.interpolated[i];
