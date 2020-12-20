@@ -242,7 +242,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     };
 
     var draw = function() {
-        render_update();
+        //render_update();
         var now = Date.now();
         var dt = now - lasttime;
         time += dt;
