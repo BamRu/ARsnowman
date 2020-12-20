@@ -243,6 +243,8 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             }
         }
     };
+	
+	var flagAudio = true;
 
     var draw = function() {
         //render_update();
@@ -255,7 +257,10 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.visible = false;
         } else {
             root.visible = true;
-			sound.play();
+			if(flagAudio){
+				sound.play();
+			flagAudio = false;}
+				
             // interpolate matrix
             for (var i = 0; i < 16; i++) {
                 trackedMatrix.delta[i] = world[i] - trackedMatrix.interpolated[i];
