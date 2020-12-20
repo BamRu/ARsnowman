@@ -21,11 +21,11 @@ var trackedMatrix = {
 }
 
 var markers = {
-    "AR_Marker": {
+    "pinball": {
         width: 1637,
         height: 2048,
         dpi: 250,
-        url: "./examples/DataNFT/AR_Marker",
+        url: "./examples/DataNFT/pinball",
     },
 };
 
