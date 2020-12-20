@@ -89,7 +89,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.z = 0;
             model.position.x = 100;
             model.position.y = 100;
-			model.rotation.x = 90;
+			model.rotation.y = 180;
 			model.scale.x = 300;
 			model.scale.y - 300;
 			model.scale.z = 300;
@@ -182,7 +182,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
                         // removing loader page if present
                         var loader = document.getElementById('loading');
                         if (loader) {
-                            loader.querySelector('.loading-text').innerText = 'Start the tracking!';
+                            loader.querySelector('.loading-text').innerText = 'Погнали!';
                             setTimeout(function(){
                                 loader.parentElement.removeChild(loader);
                             }, 2000);
