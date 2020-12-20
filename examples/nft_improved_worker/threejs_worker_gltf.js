@@ -25,11 +25,11 @@ var trackedMatrix = {
 }
 
 var markers = {
-    pinball: {
+    AR_Marker: {
         width: 1637,
         height: 2048,
         dpi: 215,
-        url: "../examples/DataNFT/pinball"
+        url: "../examples/DataNFT/AR_Marker"
     }
 };
 
@@ -94,6 +94,9 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             model.position.z = 0;
             model.position.x = 100;
             model.position.y = 100;
+			model.scale.x = 1000;
+			model.scale.y - 1000;
+			model.scale.z = 1000;
 
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
