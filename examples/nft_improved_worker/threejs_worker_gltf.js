@@ -26,8 +26,8 @@ var trackedMatrix = {
 
 var markers = {
     AR_Marker: {
-        width: 1637,
-        height: 2048,
+        width: 1077,
+        height: 1077,
         dpi: 215,
         url: "../examples/DataNFT/AR_Marker"
     }
@@ -87,14 +87,11 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     threeGLTFLoader.load("../Data/models/SnowMan.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
-            model.position.x = 0;
-            model.position.y = 0;
-			model.rotation.x = -90;
-			model.rotation.y = -90;
-			model.rotation.z = -90;
-			model.scale.x = 200;
-			model.scale.y - 200;
-			model.scale.z = 200;
+            model.position.x = 100;
+            model.position.y = 100;
+			model.scale.x = 300;
+			model.scale.y - 300;
+			model.scale.z = 300;
 /*
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
@@ -256,7 +253,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         } else {
             root.visible = true;
 			if(flagAudio){
-				sound.play();
+				//sound.play();
 			flagAudio = false;}
 				
             // interpolate matrix
