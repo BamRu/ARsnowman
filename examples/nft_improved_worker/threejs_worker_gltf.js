@@ -87,7 +87,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     threeGLTFLoader.load("../Data/models/SnowMan.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.position.z = 0;
-            model.position.x = 100;
+            model.position.x = 180;
             model.position.y = 100;
 			//model.rotation.y = 180;
 			model.scale.x = 1000;
