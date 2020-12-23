@@ -39,8 +39,8 @@
         var hint = {
           audio: false,
           video: {
-				width: { ideal: document.documentElement.clientWidth },
-                height: { ideal: document.documentElement.clientHeight }
+				width: { ideal: document.documentElement.window.innerWidth },
+                height: { ideal: document.documentElement.window.innerHeight }
 		  }
         };
 
@@ -48,8 +48,8 @@
           hint = {
             audio: false,
             video: {
-				width: { ideal: document.documentElement.clientWidth },
-                height: { ideal: document.documentElement.clientHeight },
+				width: { ideal: document.documentElement.window.innerWidth },
+                height: { ideal: document.documentElement.window.innerHeight },
                 facingMode:
                     { exact:
                         "environment"
