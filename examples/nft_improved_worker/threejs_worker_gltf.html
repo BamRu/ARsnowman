@@ -38,7 +38,10 @@
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         var hint = {
           audio: false,
-          video: true
+          video: {
+				width: { ideal: document.documentElement.clientWidth },
+                height: { ideal: document.documentElement.clientHeight }
+		  }
         };
 
         if (window.innerWidth < 800) {
@@ -51,7 +54,7 @@
                     { exact:
                         "environment"
                     }
-                },
+                }
           };
         }
 
