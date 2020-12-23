@@ -121,8 +121,7 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 });
 	
     var load = function() {
-		screen.orientation.lock("portrait")
-        vw = input_width;
+		vw = input_width;
         vh = input_height;
 
         pscale = 320 / Math.max(vw, vh);
