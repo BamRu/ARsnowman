@@ -124,32 +124,31 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         vw = input_width;
         vh = input_height;
 
-        //pscale = 320 / Math.max(vw, (vh / 3) * 4);
-        //sscale = isMobile() ? window.outerWidth / input_width : 1;
-		sscale = 1;
-		pscale = 1;
+        pscale = 320 / Math.max(vw, (vh / 3) * 4);
+        sscale = isMobile() ? window.outerWidth / input_width : 1;
+
         sw = vw * sscale;
         sh = vh * sscale;
-        video.style.width = sw + "px";
-        video.style.height = sh + "px";
+        video.style.width = document.documentElement.clientWidth;
+        video.style.height = document.documentElement.clientHeight;
         container.style.width = document.documentElement.clientWidth;
         container.style.height = document.documentElement.clientHeight;
-        canvas_draw.style.clientWidth = sw + "px";
-        canvas_draw.style.clientHeight = sh + "px";
-        canvas_draw.width = sw;
-        canvas_draw.height = sh;
+        canvas_draw.style.clientWidth = document.documentElement.clientWidth;
+        canvas_draw.style.clientHeight = document.documentElement.clientHeight;
+        canvas_draw.width = document.documentElement.clientWidth;
+        canvas_draw.height = document.documentElement.clientHeight;
         w = vw * pscale;
         h = vh * pscale;
         pw = Math.max(w, (h / 3) * 4);
         ph = Math.max(h, (w / 4) * 3);
         ox = (pw - w) / 2;
         oy = (ph - h) / 2;
-        canvas_process.style.clientWidth = pw + "px";
-        canvas_process.style.clientHeight = ph + "px";
-        canvas_process.width = pw;
-        canvas_process.height = ph;
+        canvas_process.style.clientWidth = document.documentElement.clientWidth;
+        canvas_process.style.clientHeight = document.documentElement.clientHeight;
+        canvas_process.width = document.documentElement.clientWidth;
+        canvas_process.height = document.documentElement.clientHeight;
 
-        renderer.setSize(sw, sh);
+        renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
         worker = new Worker("../../js/artoolkit.worker.js");
 
