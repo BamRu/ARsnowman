@@ -129,12 +129,12 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 
         sw = vw * sscale;
         sh = vh * sscale;
-        video.style.width = sw + "px";
-        video.style.height = sh + "px";
-        container.style.width = sw + "px";
-        container.style.height = sh + "px";
-        canvas_draw.style.clientWidth = sw + "px";
-        canvas_draw.style.clientHeight = sh + "px";
+        video.style.width = document.documentElement.clientWidth ;
+        video.style.height = document.documentElement.clientHeight;
+        container.style.width = document.documentElement.clientWidth ;
+        container.style.height = document.documentElement.clientHeight;
+        canvas_draw.style.clientWidth = document.documentElement.clientWidth ;
+        canvas_draw.style.clientHeight = document.documentElement.clientHeight;
         canvas_draw.width = sw;
         canvas_draw.height = sh;
         w = vw * pscale;
