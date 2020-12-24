@@ -85,6 +85,7 @@ html {
   height: 100%;
   z-index: 99999999999999;
   background-color: rgba( 255,255,255,1 );
+  visibility : hidden;
 }
 @media screen and (orientation: portrait) {
   #blockvideo {
@@ -96,7 +97,6 @@ html {
 	  visibility : visible;
   }
 }
-
 
 #app {
   position: fixed;
@@ -130,6 +130,17 @@ html {
   object-fit: cover;
 }
 
+#photoCanvas{
+  position: relative;
+  left: 640px;
+  top: 0;
+  z-index: 101;
+
+  display: block;
+  /*width: 100% !important;
+  height: 100% !important;*/
+  object-fit: cover;
+}
 
 #arvideo {
   display: none;

@@ -25,15 +25,33 @@ var trackedMatrix = {
 }
 
 var markers = {
-    AR_Marker: {
+    qr_code_legacy: {
+        width: 1238,
+        height: 1238,
+        dpi: 300,
+        url: "../examples/DataNFT/qr-code_legacy"
+    },
+    qr_code_stable: {
+        width: 938,
+        height: 938,
+        dpi: 300,
+        url: "../examples/DataNFT/qr-code_stable"
+    },
+    qr_code_prelegacy: {
+        width: 370,
+        height: 370,
+        dpi: 300,
+        url: "../examples/DataNFT/qr-code_prelegacy"
+    },
+	pinball: {
         width: 1077,
         height: 1077,
         dpi: 215,
-        url: "../examples/DataNFT/AR_Marker"
-    }
+        url: "../examples/DataNFT/pinball"
+    },
 };
 
-var setMatrix = function (matrix, value) {
+var setMatrix = function(matrix, value) {
     var array = [];
     for (var key in value) {
         array[key] = value[key];
@@ -45,7 +63,7 @@ var setMatrix = function (matrix, value) {
     }
 };
 
-function start( container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
+function start(container, marker, video, input_width, input_height, canvas_draw, render_update) {
     var vw, vh;
     var sw, sh;
     var pscale, sscale;
@@ -70,13 +88,18 @@ function start( container, marker, video, input_width, input_height, canvas_draw
 
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
-    var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000000000000);
-    camera.position.z = 10;
-	
+    var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
+    camera.position.z = 400;
+
     scene.add(camera);
 
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
+
+    var sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.5, 8, 8),
+        new THREE.MeshNormalMaterial()
+    );
 
     var root = new THREE.Object3D();
     scene.add(root);
@@ -84,44 +107,43 @@ function start( container, marker, video, input_width, input_height, canvas_draw
     /* Load Model */
     var threeGLTFLoader = new THREE.GLTFLoader();
 
-    threeGLTFLoader.load("../Data/models/SnowMan.glb", function (gltf) {
-            model = gltf.scene.children[0];
-            model.position.x = 0;
-            model.position.y = -5;
-            model.position.z = 0;
-			model.rotation.x = 0;
-			model.rotation.y = 0;
-			model.rotation.z = 0;
-			model.scale.x = 100;
-			model.scale.y - 100;
-			model.scale.z = 100;
+    threeGLTFLoader.load("../Data/models/SnowMan.glb", function(gltf) {
+        model = gltf.scene.children[0];
 
-            var animation = gltf.animations[0];
-            var mixer = new THREE.AnimationMixer(model);
-            mixers.push(mixer);
-            var action = mixer.clipAction(animation);
-            action.play();
+        model.position.z = 0;
+        model.position.x = 200;
+        model.position.y = -1100;
 
-            root.matrixAutoUpdate = true;
-            root.add(model);
-        }
-    );
-	
-	const listener = new THREE.AudioListener();
-	camera.add( listener );
-	
-	const sound = new THREE.Audio( listener );
-	
-	const audioLoader = new THREE.AudioLoader();
-	audioLoader.load( '../Data/sound/audio_snowman.ogg', function( buffer ) {
-	sound.setBuffer( buffer );
-	sound.setLoop( true );
-	sound.setVolume( 0.3 );
-	
-});
-	
+        model.scale.z = 3000;
+        model.scale.x = 3000;
+        model.scale.y = 3000;
+
+
+        var animation = gltf.animations[0];
+        var mixer = new THREE.AnimationMixer(model);
+        mixers.push(mixer);
+        var action = mixer.clipAction(animation);
+        action.play();
+
+        root.matrixAutoUpdate = false;
+        root.add(model);
+    });
+
+    const listener = new THREE.AudioListener();
+    camera.add(listener);
+
+    const sound = new THREE.Audio(listener);
+
+    const audioLoader = new THREE.AudioLoader();
+    audioLoader.load('../Data/sound/audio_snowman.ogg', function(buffer) {
+        sound.setBuffer(buffer);
+        sound.setLoop(false);
+        sound.setVolume(0.5);
+
+    });
+
     var load = function() {
-		vw = input_width;
+        vw = input_width;
         vh = input_height;
 
         pscale = 320 / Math.max(vw, vh);
@@ -135,8 +157,8 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         container.style.height = sh + "px";
         canvas_draw.style.clientWidth = sw + "px";
         canvas_draw.style.clientHeight = sh + "px";
-        canvas_draw.width = sw;
-        canvas_draw.height = sh;
+        canvas_draw.Width = sw;
+        canvas_draw.Height = sh;
         w = vw * pscale;
         h = vh * pscale;
         pw = Math.max(w, (h / 3) * 4);
@@ -163,44 +185,48 @@ function start( container, marker, video, input_width, input_height, canvas_draw
         worker.onmessage = function(ev) {
             var msg = ev.data;
             switch (msg.type) {
-                case "loaded": {
-                    var proj = JSON.parse(msg.proj);
-                    var ratioW = pw / w;
-                    var ratioH = ph / h;
-                    proj[0] *= ratioW;
-                    proj[4] *= ratioW;
-                    proj[8] *= ratioW;
-                    proj[12] *= ratioW;
-                    proj[1] *= ratioH;
-                    proj[5] *= ratioH;
-                    proj[9] *= ratioH;
-                    proj[13] *= ratioH;
-                    //setMatrix(camera.projectionMatrix, proj);
-                    break;
-                }
-
-                case "endLoading": {
-                    if (msg.end == true) {
-                        // removing loader page if present
-                        var loader = document.getElementById('loading');
-                        if (loader) {
-                            loader.querySelector('.loading-text').innerText = 'Погнали!';
-                            setTimeout(function(){
-                                loader.parentElement.removeChild(loader);
-                            }, 2000);
-                        }
+                case "loaded":
+                    {
+                        var proj = JSON.parse(msg.proj);
+                        var ratioW = pw / w;
+                        var ratioH = ph / h;
+                        proj[0] *= ratioW;
+                        proj[4] *= ratioW;
+                        proj[8] *= ratioW;
+                        proj[12] *= ratioW;
+                        proj[1] *= ratioH;
+                        proj[5] *= ratioH;
+                        proj[9] *= ratioH;
+                        proj[13] *= ratioH;
+                        //setMatrix(camera.projectionMatrix, proj);
+                        break;
                     }
-                    break;
-                }
 
-                case "found": {
-                    found(msg);
-                    break;
-                }
-                case "not found": {
-                    found(null);
-                    break;
-                }
+                case "endLoading":
+                    {
+                        if (msg.end == true) {
+                            // removing loader page if present
+                            var loader = document.getElementById('loading');
+                            if (loader) {
+                                loader.querySelector('.loading-text').innerText = 'Начинаем!';
+                                setTimeout(function() {
+                                    loader.parentElement.removeChild(loader);
+                                }, 2000);
+                            }
+                        }
+                        break;
+                    }
+
+                case "found":
+                    {
+                        found(msg);
+                        break;
+                    }
+                case "not found":
+                    {
+                        found(null);
+                        break;
+                    }
             }
             //track_update();
             process();
@@ -241,8 +267,8 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             }
         }
     };
-	
-	var flagAudio = true;
+
+    var flagAudio = true;
 
     var draw = function() {
         //render_update();
@@ -255,10 +281,11 @@ function start( container, marker, video, input_width, input_height, canvas_draw
             root.visible = false;
         } else {
             root.visible = true;
-			if(flagAudio){
-				//sound.play();
-			flagAudio = false;}
-				
+            if (flagAudio) {
+                sound.play();
+                flagAudio = false;
+            }
+
             // interpolate matrix
             for (var i = 0; i < 16; i++) {
                 trackedMatrix.delta[i] = world[i] - trackedMatrix.interpolated[i];
