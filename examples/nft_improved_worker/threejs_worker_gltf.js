@@ -282,7 +282,7 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         } else {
             root.visible = true;
             if (flagAudio) {
-                sound.play();
+                //sound.play();
                 flagAudio = false;
             }
 
