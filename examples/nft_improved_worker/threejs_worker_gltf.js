@@ -3,7 +3,7 @@ var clock = new THREE.Clock();
 var mixers = [];
 
 function isMobile() {
-    return /Android|mobile|iPad|iPhone/i.test(navigator.userAgent);
+    //return /Android|mobile|iPad|iPhone/i.test(navigator.userAgent);
 }
 
 var interpolationFactor = 24;
