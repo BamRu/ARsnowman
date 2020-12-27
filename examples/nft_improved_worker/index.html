@@ -66,8 +66,8 @@
 
 
         function TakeScreenshot() {
-            PCContext.drawImage(video, 0, 0);
-            PCContext.drawImage(canvas, 0, 0);
+            PCContext.drawImage(video, 0, 0, 320, 240);
+            PCContext.drawImage(canvas, 0, 0, 320, 240);
 
             photoCanvas.toBlob(function(blob) {
                 counter += 1;
@@ -79,8 +79,8 @@
         function TakeScreenshotWrapper() {
             if (globalsSetup) {
                 canvas.style.visibility = "hidden";
-                //setTimeout(TakeScreenshot, 500);
-				setTimeout(TestVideo, 500);
+                setTimeout(TakeScreenshot, 500);
+				//setTimeout(TestVideo, 500);
                 setTimeout(() => {
                     canvas.style.visibility = "visible"
                 }, 3000);
