@@ -66,8 +66,13 @@
 
 
         function TakeScreenshot() {
-            PCContext.drawImage(video, 0, 0, 320, 240);
-            PCContext.drawImage(canvas, 0, 0, 320, 240);
+			float x = 0.0;
+			float y = 0.0;
+			RectangleF srcRect = new RectangleF(0.0, 0.0, parseFloat(String(video.videoWidth;)), parseFloat(String(video.videoHeight;)));
+			GraphicsUnit units = GraphicsUnit.Pixel;
+			
+            PCContext.drawImage(video, x, y, srcRect, units);
+            PCContext.drawImage(canvas, x, y, srcRect, units);
 
             photoCanvas.toBlob(function(blob) {
                 counter += 1;
