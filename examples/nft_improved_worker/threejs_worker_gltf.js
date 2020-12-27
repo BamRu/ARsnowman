@@ -156,19 +156,19 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         container.style.height = sh + "px";
         canvas_draw.Width = sw;
         canvas_draw.Height = sh;
-		document.getElementById("text3").innerHTML = sw;
-		document.getElementById("text4").innerHTML = sh;
         w = vw ;
         h = vh ;
         pw = Math.max(w, (h / 3) * 4);
         ph = Math.max(h, (w / 4) * 3);
         ox = (pw - w) / 2;
         oy = (ph - h) / 2;
-        //canvas_process.style.clientWidth = pw + "px";
-        //canvas_process.style.clientHeight = ph + "px";
-        //canvas_process.width = pw;
-        //canvas_process.height = ph;
+        canvas_process.style.clientWidth = pw + "px";
+        canvas_process.style.clientHeight = ph + "px";
+        canvas_process.width = pw;
+        canvas_process.height = ph;
 
+		document.getElementById("text3").innerHTML = pw;
+		document.getElementById("text4").innerHTML = ph;
         renderer.setSize(vw, vh);
 
         worker = new Worker("../../js/artoolkit.worker.js");
