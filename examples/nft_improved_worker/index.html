@@ -58,21 +58,17 @@
         }
 
 		function TestVideo(){
-			PCContext.drawImage(video, 0, 0, 320, 240);
-            PCContext.drawImage(canvas, 0, 0, 320, 240);
+			var x = 0; var y = 0;
+			PCContext.drawImage(video, 0, 0);
+            PCContext.drawImage(canvas, 0, 0);
 
 			 setTimeout(TestVideo, 50);
 		}
 
 
         function TakeScreenshot() {
-			float x = 0.0;
-			float y = 0.0;
-			RectangleF srcRect = new RectangleF(0.0, 0.0, parseFloat(String(video.videoWidth;)), parseFloat(String(video.videoHeight;)));
-			GraphicsUnit units = GraphicsUnit.Pixel;
-			
-            PCContext.drawImage(video, x, y, srcRect, units);
-            PCContext.drawImage(canvas, x, y, srcRect, units);
+			PCContext.drawImage(video, 0, 0);
+            PCContext.drawImage(canvas, 0, 0);;
 
             photoCanvas.toBlob(function(blob) {
                 counter += 1;
@@ -84,8 +80,8 @@
         function TakeScreenshotWrapper() {
             if (globalsSetup) {
                 canvas.style.visibility = "hidden";
-                setTimeout(TakeScreenshot, 500);
-				//setTimeout(TestVideo, 500);
+                //setTimeout(TakeScreenshot, 500);
+				setTimeout(TestVideo, 500);
                 setTimeout(() => {
                     canvas.style.visibility = "visible"
                 }, 3000);
@@ -124,10 +120,10 @@
                 audio: false,
                 video: {
                     width: {
-                        ideal: 320
+                        ideal: window.screen.availWidth
                     },
                     height: {
-                        ideal: 240
+                        ideal: window.screen.availHeight
                     }
                 }
             };
@@ -137,10 +133,10 @@
                     audio: false,
                     video: {
                         width: {
-                            ideal: 320
+                            ideal: window.screen.availWidth
                         },
                         height: {
-                            ideal: 240
+                            ideal: window.screen.availHeight
                         },
                         facingMode: {
                             exact: "environment"
@@ -161,8 +157,8 @@
                         container,
                         markers["pinball"],
                         video,
-                        320,
-                        240,
+                        video.videoWidth,
+                        video.videoHeight,
                         canvas,
                         null,
                         null,

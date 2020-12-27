@@ -131,7 +131,7 @@ html {
 }
 
 #photoCanvas{
-  position: relative;
+  position: absolute;
   left: 320px;
   top: 0px;
   z-index: 101;
