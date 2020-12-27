@@ -154,8 +154,6 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         video.style.height = sh + "px";
         container.style.width = sw + "px";
         container.style.height = sh + "px";
-        canvas_draw.style.clientWidth = sw + "px";
-        canvas_draw.style.clientHeight = sh + "px";
         canvas_draw.Width = sw;
         canvas_draw.Height = sh;
         w = vw ;
@@ -164,10 +162,10 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         ph = Math.max(h, (w / 4) * 3);
         ox = (pw - w) / 2;
         oy = (ph - h) / 2;
-        canvas_process.style.clientWidth = pw + "px";
-        canvas_process.style.clientHeight = ph + "px";
-        canvas_process.width = pw;
-        canvas_process.height = ph;
+        //canvas_process.style.clientWidth = pw + "px";
+        //canvas_process.style.clientHeight = ph + "px";
+        //canvas_process.width = pw;
+        //canvas_process.height = ph;
 
         renderer.setSize(sw, sh);
 
