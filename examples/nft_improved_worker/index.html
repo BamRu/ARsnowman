@@ -29,7 +29,10 @@
         <canvas id="canvas" style="visibility: visible;"></canvas>
     </div>
     <canvas id="photoCanvas"></canvas>
-
+	<h1 id="text1"></h1>
+	<h1 id="text2"></h1>
+	<h1 id="text3"></h1>
+	<h1 id="text4"></h1>
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
     <script src="ua-parser.min.js"></script>
@@ -153,7 +156,9 @@
                     video.play();
                     photoCanvas.width = video.videoWidth;
                     photoCanvas.height = video.videoHeight;
-                    start(
+					document.getElementById("text1").innerHTML = photoCanvas.width;
+					document.getElementById("text2").innerHTML = photoCanvas.height;
+					start(
                         container,
                         markers["pinball"],
                         video,
