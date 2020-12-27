@@ -167,7 +167,7 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         //canvas_process.width = pw;
         //canvas_process.height = ph;
 
-        renderer.setSize(sw, sh);
+        renderer.setSize(vw, vh);
 
         worker = new Worker("../../js/artoolkit.worker.js");
 
