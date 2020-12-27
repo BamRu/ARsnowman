@@ -123,10 +123,10 @@
                 audio: false,
                 video: {
                     width: {
-                        ideal: 160
+                        ideal: window.innerWidth
                     },
                     height: {
-                        ideal: 120
+                        ideal: window.innerWidth
                     }
                 }
             };
@@ -136,10 +136,10 @@
                     audio: false,
                     video: {
                         width: {
-                            ideal: 120
+                            ideal: window.innerWidth
                         },
                         height: {
-                            ideal: 160
+                            ideal: window.innerHeight
                         },
                         facingMode: {
                             exact: "environment"
@@ -162,8 +162,8 @@
                         container,
                         markers["pinball"],
                         video,
-                        160,
-                        120,
+                        video.videoWidth,
+                        video.videoHeight,
                         canvas,
                         null,
                         null,
