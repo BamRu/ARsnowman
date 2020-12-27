@@ -58,8 +58,8 @@
         }
 
 		function TestVideo(){
-			PCContext.drawImage(video, 0, 0);
-            PCContext.drawImage(canvas, 0, 0);
+			PCContext.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
+            PCContext.drawImage(canvas, 0, 0, photoCanvas.width, photoCanvas.height);
 
 			 setTimeout(TestVideo, 50);
 		}
