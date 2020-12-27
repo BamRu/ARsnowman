@@ -80,8 +80,8 @@
         function TakeScreenshotWrapper() {
             if (globalsSetup) {
                 canvas.style.visibility = "hidden";
-                //setTimeout(TakeScreenshot, 500);
-				setTimeout(TestVideo, 500);
+                setTimeout(TakeScreenshot, 500);
+				//setTimeout(TestVideo, 500);
                 setTimeout(() => {
                     canvas.style.visibility = "visible"
                 }, 3000);
