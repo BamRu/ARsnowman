@@ -130,11 +130,11 @@ html {
   object-fit: cover;
 }
 
+/*
 #photoCanvas{
   position: absolute;
-  visibility: hidden;
 }
-/*
+  visibility: hidden;
   left: 160px;
   top: 0px;
   z-index: 101;
