@@ -51,20 +51,23 @@
             video = document.getElementById('video');
 
             photoCanvas = document.getElementById("photoCanvas");
+			photoCanvas.width = video.videoWidth;
+            photoCanvas.height = video.videoHeight;
             PCContext = photoCanvas.getContext('2d');
             globalsSetup = true;
         }
 
 		function TestVideo(){
-			//PCContext.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+			PCContext.drawImage(video, 0, 0);
             PCContext.drawImage(canvas, 0, 0);
+
 			 setTimeout(TestVideo, 50);
 		}
 
 
         function TakeScreenshot() {
-            PCContext.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-            PCContext.drawImage(canvas, 0, 0, canvas.naturalwidth, canvas.naturalheight);
+            PCContext.drawImage(video, 0, 0);
+            PCContext.drawImage(canvas, 0, 0);
 
             photoCanvas.toBlob(function(blob) {
                 counter += 1;

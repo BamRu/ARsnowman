@@ -106,7 +106,7 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
 
     /* Load Model */
     var threeGLTFLoader = new THREE.GLTFLoader();
-
+	var action;
     threeGLTFLoader.load("../Data/models/SnowMan.glb", function(gltf) {
         model = gltf.scene.children[0];
 
@@ -122,8 +122,7 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         var animation = gltf.animations[0];
         var mixer = new THREE.AnimationMixer(model);
         mixers.push(mixer);
-        var action = mixer.clipAction(animation);
-        action.play();
+        action = mixer.clipAction(animation);
 
         root.matrixAutoUpdate = false;
         root.add(model);
@@ -282,6 +281,7 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         } else {
             root.visible = true;
             if (flagAudio) {
+				action.play();
                 //sound.play();
                 flagAudio = false;
             }
