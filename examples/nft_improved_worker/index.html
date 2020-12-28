@@ -62,15 +62,15 @@
 
 		function TestVideo(){
 			var x = 0; var y = 0;
-			PCContext.drawImage(video, 0, 0, 160, 120);
-            PCContext.drawImage(canvas, 0, 0, 160, 120);
+			PCContext.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
+            PCContext.drawImage(canvas, 0, 0, photoCanvas.width, photoCanvas.height);
 
 			 setTimeout(TestVideo, 50);
 		}
 
 
         function TakeScreenshot() {
-			PCContext.drawImage(video, 0, 0);
+			PCContext.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
             PCContext.drawImage(canvas, 0, 0);;
 
             photoCanvas.toBlob(function(blob) {
