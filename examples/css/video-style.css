@@ -131,11 +131,11 @@ html {
 }
 
 #photoCanvas{
-  position: relative;
-  left: 160px;
+  visibility: hidden;
 }
 /*
-  visibility: hidden;
+  position: relative;
+  left: 160px;
   top: 0px;
   z-index: 101;
 }
