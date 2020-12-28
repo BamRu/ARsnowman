@@ -71,7 +71,7 @@
 
         function TakeScreenshot() {
 			PCContext.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
-            PCContext.drawImage(canvas, 0, 0);;
+            PCContext.drawImage(canvas, 0, 0, photoCanvas.width, photoCanvas.height);
 
             photoCanvas.toBlob(function(blob) {
                 counter += 1;
@@ -83,8 +83,8 @@
         function TakeScreenshotWrapper() {
             if (globalsSetup) {
                 canvas.style.visibility = "hidden";
-                //setTimeout(TakeScreenshot, 500);
-				setTimeout(TestVideo, 500);
+                setTimeout(TakeScreenshot, 500);
+				//setTimeout(TestVideo, 500);
                 setTimeout(() => {
                     canvas.style.visibility = "visible"
                 }, 3000);
@@ -123,10 +123,10 @@
                 audio: false,
                 video: {
                     width: {
-                        ideal: 160
+                        ideal: document.documentElement.windowWidth
                     },
                     height: {
-                        ideal: 120
+                        ideal: document.documentElement.windowHeight
                     }
                 }
             };
@@ -136,10 +136,10 @@
                     audio: false,
                     video: {
                         width: {
-                            ideal: 160
+                            ideal: document.documentElement.windowWidth
                         },
                         height: {
-                            ideal: 120
+                            ideal: document.documentElement.windowHeight
                         },
                         facingMode: {
                             exact: "environment"
