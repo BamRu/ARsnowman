@@ -73,8 +73,8 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
     var worker;
     var camera_para = "./../examples/Data/camera_para-iPhone 5 rear 640x480 1.0m.dat";
 
-   // var canvas_process = document.createElement("canvas");
-    //var context_process = canvas_process.getContext("2d");
+    var canvas_process = document.createElement("canvas");
+    var context_process = canvas_process.getContext("2d");
 
     // var context_draw = canvas_draw.getContext('2d');
     var renderer = new THREE.WebGLRenderer({
@@ -167,10 +167,10 @@ function start(container, marker, video, input_width, input_height, canvas_draw,
         ph = Math.max(h, (w / 4) * 3);
         ox = (pw - w) / 2;
         oy = (ph - h) / 2;
-        //canvas_process.style.clientWidth = pw + "px";
-        //canvas_process.style.clientHeight = ph + "px";
-        //canvas_process.width = pw;
-        //canvas_process.height = ph;
+        canvas_process.style.clientWidth = pw + "px";
+        canvas_process.style.clientHeight = ph + "px";
+        canvas_process.width = pw;
+        canvas_process.height = ph;
 
 		document.getElementById("text3").innerHTML = pw;
 		document.getElementById("text4").innerHTML = ph;
