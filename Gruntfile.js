@@ -1,28 +1,26 @@
-/*global module,require */
+/* global module,require */
 module.exports = function (grunt) {
+  'use strict'
 
-  'use strict';
-
-  var pkg = grunt.file.readJSON('package.json');
-
+  var pkg = grunt.file.readJSON('package.json')
 
   grunt.initConfig({
-
     pkg: pkg,
 
-    jsdoc: {
-      dist: {
-        src: ['js/artoolkit.api.js'],
-        options: {
-          destination: 'doc/reference',
-          private: false,
-          template: './node_modules/ink-docstrap/template',
-          configure: 'conf.json'
-        }
-      }
+    jshint: {
+      options: {
+        'esversion': 6
+      },
+      build: [
+        'src/index.js',
+        'src/ARnft.js',
+        'src/utils/Utils.js',
+        'src/utils/html/Container.js'
+      ]
     }
-  });
 
-  grunt.loadNpmTasks('grunt-jsdoc');
 
-};
+  })
+
+  grunt.loadNpmTasks('grunt-contrib-jshint')
+}
